@@ -1,0 +1,36 @@
+<div class="container mt-5 " data-aos="fade-up">
+  <h2 class="text-center fw-bold mb-4">Contact Me</h2>
+  <p class="text-center text-muted mb-4">Let’s connect! Fill out the form below 👇</p>
+
+  <form (ngSubmit)="sendEmail()" class="col-md-8 offset-md-2">
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Your Name</mat-label>
+        <input matInput type="text" [(ngModel)]="name" name="name">
+      </mat-form-field>
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Your Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email">
+      </mat-form-field>
+    </div>
+
+    <div class="mb-3">
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Your Message</mat-label>
+        <textarea matInput rows="4" [(ngModel)]="message" name="message"></textarea>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" class="w-100">
+      📩 Send Message
+    </button>
+  </form>
+
+  <div class="mt-3 text-center">
+    <p *ngIf="successMessage" class="text-success fw-bold">{{ successMessage }}</p>
+    <p *ngIf="errorMessage" class="text-danger fw-bold">{{ errorMessage }}</p>
+  </div>
+</div>

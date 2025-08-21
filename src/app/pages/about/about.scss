@@ -1,0 +1,59 @@
+/* ----- Base tweaks (local to About) ----- */
+img { border: 4px solid #007bff; }
+h2 { font-size: 2rem; }
+p  { line-height: 1.6; }
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.profile-pic:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,.3);
+}
+
+.gradient-base{
+  display:inline-block;
+  background-size:200% 100%;
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradientShift 3s ease-in-out infinite alternate;
+  font-weight:600;
+}
+.gradient-name{ @extend .gradient-base; background-image:linear-gradient(90deg,#2C3E50,#3498db); }
+.gradient-role{ @extend .gradient-base; background-image:linear-gradient(90deg,#16A085,#1ABC9C); }
+.gradient-frontend{ @extend .gradient-base; background-image:linear-gradient(90deg,#8E44AD,#9B59B6); }
+.gradient-backend{ @extend .gradient-base; background-image:linear-gradient(90deg,#E67E22,#F39C12); }
+.gradient-passion{ @extend .gradient-base; background-image:linear-gradient(90deg,#C0392B,#E74C3C); }
+@keyframes gradientShift{ 0%{background-position:0% 50%} 100%{background-position:100% 50%} }
+
+
+.typed-cursor {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2C3E50;
+}
+
+/* ----- Chip coloring (Material v20, reliable) ----- */
+/* Use deep selectors so MDC internals pick it up. If you dislike ::ng-deep,
+   move these three rules into global styles.scss and remove :host ::ng-deep. */
+:host ::ng-deep .mat-mdc-chip.chip-frontend .mdc-evolution-chip__action {
+  background-color: rgba(13,110,253,.12);
+  color: #0b2e63;
+}
+:host ::ng-deep .mat-mdc-chip.chip-backend .mdc-evolution-chip__action {
+  background-color: rgba(32,201,151,.15);
+  color: #0a4a40;
+}
+:host ::ng-deep .mat-mdc-chip.chip-tools .mdc-evolution-chip__action {
+  background-color: #fde7d3;
+  color: #8a4b0f;
+}
+
+/* Responsive image */
+@media (max-width: 768px) {
+  .profile-pic { width: 150px; height: 150px; }
+}

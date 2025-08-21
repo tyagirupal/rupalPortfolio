@@ -1,0 +1,39 @@
+<div class="section-alt">
+  <div class="container mt-5">
+    <div class="row align-items-center">
+
+      <!-- Profile Image -->
+      <div class="col-md-4 text-center mb-4 mb-md-0" data-aos="zoom-in">
+        <img
+          src="../../../assets/rupal_img.png"
+          class="profile-pic shadow-lg rounded-circle"
+          alt="Rupal Tyagi"
+        />
+      </div>
+
+      <!-- Text + Skills -->
+      <div class="col-md-8" data-aos="fade-left">
+        <h2 class="fw-bold mb-3 text-primary text-center" data-aos="fade-down">About Me</h2>
+
+        <p class="lead text-dark">
+          <span #typedElement></span>
+        </p>
+
+        <h4 class="mt-4" data-aos="fade-right">Skills</h4>
+        <mat-chip-listbox>
+          <mat-chip
+            class="m-1"
+            selected
+            *ngFor="let skill of skills; let i = index"
+            [ngClass]="chipClass(skill)"
+            [attr.data-aos]="'zoom-in'"
+            [attr.data-aos-delay]="i * 120"
+          >
+            {{ skill }}
+          </mat-chip>
+        </mat-chip-listbox>
+      </div>
+
+    </div>
+  </div>
+</div>

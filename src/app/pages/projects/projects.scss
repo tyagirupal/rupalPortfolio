@@ -1,0 +1,38 @@
+/* Responsive grid */
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Optional card image height for consistency */
+.project-card .card-img-top{
+  height: 220px;       /* adjust to your taste */
+  object-fit: cover;   /* keep images neat */
+}
+
+/* Your existing overlay/hover styles remain */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+
+  .card-img-top {
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+
+  .overlay {
+    position: absolute; inset: 0;
+    background-color: rgba(0,0,0,0.7);
+    color:#fff; display:flex; justify-content:center; align-items:center;
+    text-align:center; opacity:0; transition:opacity .3s ease; padding:1rem;
+  }
+
+  &:hover .overlay { opacity:1; }
+  &:hover .card-img-top { transform: scale(1.1); }
+
+  .overlay-content { max-height: 90%; overflow-y: auto; }
+
+  .mat-chip { margin:2px; }
+}
